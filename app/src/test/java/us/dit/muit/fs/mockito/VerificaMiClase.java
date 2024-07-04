@@ -5,22 +5,39 @@ package us.dit.muit.fs.mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.atMostOnce;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import us.dit.muit.fs.mockito.AlumnoDAO;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import us.dit.muit.fs.mockito.Alumno;
 
 /**
  * 
  */
 class VerificaMiClase {
+	private static AlumnoDAO alumnoDAO;
+	private static List<Alumno> alumnos = new ArrayList<Alumno>();
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		Alumno alumnonuevo = new Alumno("Fran", "Barrero", "Serrano");
+		alumnos.add(alumnonuevo);
 	}
 
 	/**
@@ -65,7 +82,11 @@ class VerificaMiClase {
 	 */
 	@Test
 	void testNuevoAlumno() {
-		fail("Not yet implemented");
+		alumnoDAO = Mockito.mock(AlumnoDAO.class);
+
+		//Escribir verificaciones
+
+
 	}
 
 	/**
